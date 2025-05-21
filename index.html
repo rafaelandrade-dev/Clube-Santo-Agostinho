@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube Santo Agostinho - Clube do Livro Católico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNN3r2gGhN90LPBFmiaF_SSpb2-fQwmZUSnQ&s" alt="Logo Clube Santo Agostinho">
+                </div>
+                <h1>Clube Santo Agostinho</h1>
+            </div>
+            <nav aria-label="Navegação principal">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="menu-principal">
+                    <span class="hamburger"></span>
+                    <span class="sr-only">Menu</span>
+                </button>
+                <ul id="menu-principal">
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#cadastro">Cadastro</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>"A leitura é um meio para atingir a sabedoria, mas a sabedoria está em saber utilizar o que se leu."<span>— Santo Agostinho</span></h2>
+                    <p>Junte-se ao nosso clube de leitura e aprofunde sua fé através dos tesouros da literatura</p>
+                    <a href="#cadastro" class="btn-primary">Participe</a>
+                </div>
+            </div>
+        </section>
+        <section id="sobre" class="about">
+            <div class="container">
+                <h2>Sobre o Clube</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>O <strong>Clube Santo Agostinho</strong> nasceu do desejo de unir fiéis em torno da boa literatura, promovendo o crescimento espiritual e intelectual através da leitura compartilhada.</p>
+                        <p>Nos encontramos mensalmente para discutir obras selecionadas que enriquecem nossa fé e ampliam nosso entendimento. Cada livro é escolhido cuidadosamente para nutrir a alma e estimular reflexões profundas sobre nossa jornada espiritual.</p>
+                        <p>Mais do que um simples clube de leitura, somos uma fraternidade unida pela busca do conhecimento que nos aproxima de Deus.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.opusdei.org/?url=https://s3-eu-west-1.amazonaws.com/images-opus-dei/image/san-agustin_20171018103734873620.jpg&w=600&il&output=jpg&q=85" alt="Santo Agostinho">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="cadastro" class="registration">
+            <div class="container">
+                <h2>Cadastre-se</h2>
+                <div class="form-container">
+                    <form id="registration-form" aria-labelledby="form-title">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paroquia">Paróquia/Comunidade</label>
+                            <input type="text" id="paroquia" name="paroquia">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">
+                                <span class="btn-text">Enviar Inscrição</span>
+                                <span class="btn-icon"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div id="confirmation-modal" class="modal" aria-hidden="true">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="confirmation-message">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Envie o email para conluir a inscrição!</h3>
+                    <a href="https://t.me/+0nibUGbajgZkYjhh" target="_blank" style="text-decoration: underline;">Clique aqui para entrar no nosso grupo do telegram!</a>
+                    <p>Aguardamos você em nosso próximo encontro!</p>
+                    <div class="modal-footer">
+                        <button class="btn-primary close-confirm">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <h2>Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>clubelivrosantoagostinho@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>(83) 98197-5000</p>
+                        </div>
+                        <!-- <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Paróquia São José - Rua da Fé, 123</p>
+                        </div> -->
+                    </div>
+                    <div class="contact-schedule">
+                        <h3>Horários de Encontro</h3>
+                        <p><i class="fas fa-calendar-alt"></i> Indefinido</p>
+                        <p><i class="fas fa-clock"></i> Indefinido</p>
+                        <p><i class="fas fa-book-reader"></i> Online</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Úteis</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Catecismo Online</a></li>
+                        <li><a href="#">Agenda de Leitura</a></li>
+                        <li><a href="#">Livrarias Parceiras</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNN3r2gGhN90LPBFmiaF_SSpb2-fQwmZUSnQ&s" alt="Logo Clube Santo Agostinho">
+                        <p>"A fé é fortalecida quando é compartilhada"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Clube Santo Agostinho. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+</body>
+</html>
