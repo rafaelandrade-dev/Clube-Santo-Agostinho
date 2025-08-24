@@ -205,6 +205,13 @@ nav ul li a.active::after {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
 .hamburger {
@@ -213,17 +220,19 @@ nav ul li a.active::after {
   width: 24px;
   height: 2px;
   background-color: var(--light-color);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  margin: 0;
 }
 
 .hamburger::before,
 .hamburger::after {
   content: '';
   position: absolute;
+  left: 0;
   width: 24px;
   height: 2px;
   background-color: var(--light-color);
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .hamburger::before {
@@ -232,6 +241,21 @@ nav ul li a.active::after {
 
 .hamburger::after {
   bottom: -8px;
+}
+
+/* Animação do hamburger quando ativo */
+.menu-toggle[aria-expanded="true"] .hamburger {
+  background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger::after {
+  transform: rotate(-45deg);
+  bottom: 0;
 }
 
 /* ======== HERO SECTION ======== */
@@ -766,13 +790,13 @@ footer {
   }
   
   header .container {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .logo-container {
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .logo {
@@ -785,23 +809,42 @@ footer {
     font-size: 1.3rem;
   }
   
-  nav {
-    width: 100%;
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
   }
   
   nav ul {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+  
+  nav ul.show {
+    display: flex;
   }
   
   nav ul li {
     margin: 0;
+    text-align: center;
   }
   
   nav ul li a {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    display: block;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
   }
   
   .hero {
@@ -1214,5 +1257,41 @@ footer {
   .social-icons a {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* ===== CORREÇÕES ESPECÍFICAS PARA MENU BURGER ===== */
+@media (max-width: 768px) {
+  nav ul {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  nav ul.show {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 0;
+  }
+  
+  nav ul li a {
+    transition: background-color 0.2s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
   }
 }
