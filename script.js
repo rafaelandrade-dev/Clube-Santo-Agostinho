@@ -10,10 +10,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ===== MENU MOBILE =====
     if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            menuPrincipal.classList.toggle('show');
+        // Inicializa o aria-expanded
+        menuToggle.setAttribute('aria-expanded', 'false');
+        
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle menu
+            menuPrincipal.classList.toggle('show');
             menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // Previne scroll do body quando menu está aberto
+            if (!isExpanded) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Fecha menu ao redimensionar janela
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                menuPrincipal.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
         });
     }
     
@@ -21,15 +43,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fecha menu quando clicar em um link (mobile)
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (window.innerWidth <= 576) {
+            if (window.innerWidth <= 768) {
                 menuPrincipal.classList.remove('show');
-                menuToggle.setAttribute('aria-expanded', 'false');
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.style.overflow = '';
             }
             
             // Atualiza classe active
             menuLinks.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
         });
+    });
+    
+    // Fecha menu ao clicar fora dele
+    document.addEventListener('click', function(e) {
+        if (menuToggle && menuPrincipal) {
+            const isMenuOpen = menuPrincipal.classList.contains('show');
+            const clickedInsideMenu = menuPrincipal.contains(e.target);
+            const clickedMenuToggle = menuToggle.contains(e.target);
+            
+            if (isMenuOpen && !clickedInsideMenu && !clickedMenuToggle) {
+                menuPrincipal.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
     });
 
     // ===== FORMULÁRIO DE CADASTRO =====
