@@ -33,6 +33,9 @@ body {
   background-color: var(--bg-color);
   line-height: 1.6;
   font-size: 16px;
+  overflow-x: hidden; /* Previne scroll horizontal */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -57,6 +60,7 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  display: block; /* Remove espaço extra abaixo das imagens */
 }
 
 a {
@@ -677,135 +681,538 @@ footer {
 }
 
 /* ======== RESPONSIVIDADE ======== */
-@media (max-width: 992px) {
-  h2 {
-      font-size: 2rem;
+
+/* ===== BREAKPOINT LARGE (1200px) ===== */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
   }
   
   .hero h2 {
-      font-size: 2rem;
+    font-size: 2.3rem;
+  }
+  
+  .form-container {
+    max-width: 700px;
+    padding: 35px;
+  }
+}
+
+/* ===== BREAKPOINT MEDIUM-LARGE (992px) ===== */
+@media (max-width: 992px) {
+  .container {
+    max-width: 900px;
+    padding: 0 15px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .hero {
+    padding: 100px 0;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
   }
   
   .about-content,
   .contact-content {
-      flex-direction: column;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .about-text,
+  .about-image,
+  .contact-info,
+  .contact-schedule {
+    min-width: 100%;
   }
   
   .about-image {
-      margin-top: 30px;
+    margin-top: 20px;
+    text-align: center;
   }
   
   section {
-      padding: 60px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  header .container {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .logo-container {
-      margin-bottom: 15px;
-      justify-content: center;
-  }
-  
-  nav {
-      width: 100%;
-  }
-  
-  nav ul {
-      justify-content: center;
-  }
-  
-  nav ul li {
-      margin: 0 10px;
-  }
-  
-  .hero {
-      padding: 80px 0;
-  }
-  
-  .hero h2 {
-      font-size: 1.8rem;
+    padding: 60px 0;
   }
   
   .form-container {
-      padding: 30px 20px;
-  }
-  
-  .checkbox-options {
-      grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 576px) {
-  .menu-toggle {
-      display: block;
-  }
-  
-  header .container {
-      flex-direction: row;
-  }
-  
-  nav ul {
-      display: none;
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      flex-direction: column;
-      background-color: var(--primary-color);
-      padding: 20px 0;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  }
-  
-  nav ul.show {
-      display: flex;
-  }
-  
-  nav ul li {
-      margin: 0;
-      text-align: center;
-  }
-  
-  nav ul li a {
-      display: block;
-      padding: 12px 0;
-  }
-  
-  .hero h2 {
-      font-size: 1.5rem;
-  }
-  
-  .hero p {
-      font-size: 1rem;
-  }
-  
-  h2 {
-      font-size: 1.8rem;
+    max-width: 600px;
+    padding: 30px;
   }
   
   .footer-content {
-      flex-direction: column;
-      text-align: center;
+    gap: 30px;
+  }
+}
+
+/* ===== BREAKPOINT MEDIUM (768px) ===== */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  header {
+    padding: 12px 0;
+  }
+  
+  header .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .logo-container {
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 12px;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  nav {
+    width: 100%;
+  }
+  
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  nav ul li {
+    margin: 0;
+  }
+  
+  nav ul li a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .hero {
+    padding: 80px 0;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  .form-container {
+    padding: 25px 20px;
+    margin: 0 10px;
+  }
+  
+  .btn-submit {
+    padding: 12px 25px;
+    font-size: 0.95rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .confirmation-icon {
+    font-size: 50px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  
+  .footer-column {
+    min-width: 100%;
   }
   
   .footer-column h3 {
-      display: block;
-      text-align: center;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
   }
   
   .social-icons {
-      justify-content: center;
+    justify-content: center;
+  }
+}
+
+/* ===== BREAKPOINT SMALL (576px) ===== */
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  /* HEADER MOBILE */
+  header {
+    padding: 10px 0;
+    position: relative;
+  }
+  
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    justify-content: flex-start;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  header h1 {
+    font-size: 1.1rem;
+  }
+  
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+  
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+  
+  nav ul.show {
+    display: flex;
+  }
+  
+  nav ul li {
+    margin: 0;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+  
+  /* HERO MOBILE */
+  .hero {
+    padding: 60px 0;
+    background-attachment: scroll; /* Melhora performance mobile */
+  }
+  
+  .hero-content {
+    padding: 0 10px;
+  }
+  
+  .hero h2 {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .hero h2 span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* SECTIONS MOBILE */
+  section {
+    padding: 40px 0;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  
+  h2::after {
+    width: 60px;
+    height: 2px;
+  }
+  
+  /* ABOUT MOBILE */
+  .about-text p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .about-image {
+    margin-top: 20px;
+  }
+  
+  /* FORM MOBILE */
+  .form-container {
+    padding: 20px 15px;
+    margin: 0 5px;
   }
   
   .form-group {
-      margin-bottom: 20px;
+    margin-bottom: 18px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+  
+  .btn-icon {
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
   }
   
   .form-actions {
-      margin-top: 30px;
+    margin-top: 25px;
+  }
+  
+  /* MODAL MOBILE */
+  .modal-content {
+    width: 100%;
+    margin: 10px;
+    padding: 25px 15px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .confirmation-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
+  
+  .confirmation-message h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  .confirmation-message p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  
+  .confirmation-message a {
+    font-size: 0.95rem;
+    display: block;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+  }
+  
+  /* CONTACT MOBILE */
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .contact-item i {
+    margin-right: 0;
+    margin-bottom: 8px;
+    font-size: 28px;
+  }
+  
+  .contact-item p {
+    font-size: 0.95rem;
+  }
+  
+  .contact-schedule h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .contact-schedule p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  
+  /* FOOTER MOBILE */
+  footer {
+    padding: 40px 0 15px;
+  }
+  
+  .footer-logo img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo p {
+    font-size: 0.9rem;
+  }
+  
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+    padding-top: 15px;
+  }
+}
+
+/* ===== BREAKPOINT EXTRA SMALL (480px) ===== */
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  .form-container {
+    padding: 15px 10px;
+  }
+  
+  .btn-submit {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+  
+  .modal-content {
+    padding: 20px 10px;
+  }
+  
+  .contact-item i {
+    font-size: 24px;
+  }
+}
+
+/* ===== ORIENTAÇÃO LANDSCAPE MOBILE ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 40px 0;
+  }
+  
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  
+  section {
+    padding: 35px 0;
+  }
+  
+  nav ul {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+/* ===== MELHORIAS DE PERFORMANCE E ACESSIBILIDADE ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== MODO ESCURO (se suportado pelo dispositivo) ===== */
+@media (prefers-color-scheme: dark) {
+  /* Mantém o tema atual, mas pode ser expandido futuramente */
+}
+
+/* ===== MELHORIAS PARA TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary:hover,
+  .btn-submit:hover {
+    transform: none; /* Remove hover effects em touch devices */
+  }
+  
+  nav ul li a:hover::after {
+    width: 0; /* Remove hover underline em touch */
+  }
+  
+  /* Aumenta área de toque para links */
+  nav ul li a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-icons a {
+    min-width: 44px;
+    min-height: 44px;
   }
 }

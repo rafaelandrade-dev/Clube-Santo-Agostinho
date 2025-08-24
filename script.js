@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Variáveis
+    // ===== VARIÁVEIS =====
     const menuToggle = document.querySelector('.menu-toggle');
     const menuPrincipal = document.getElementById('menu-principal');
     const registrationForm = document.getElementById('registration-form');
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeConfirmBtn = document.querySelector('.close-confirm');
     const menuLinks = document.querySelectorAll('#menu-principal a');
     
-    // Toggle menu mobile
+    // ===== MENU MOBILE =====
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
             menuPrincipal.classList.toggle('show');
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ===== NAVEGAÇÃO =====
     // Fecha menu quando clicar em um link (mobile)
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -31,58 +32,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // evita recarregar a página
-            
-            // 3. Captura valores
-            const nome     = document.getElementById('nome').value.trim();
-            const email    = document.getElementById('email').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-            const paroquia = document.getElementById('paroquia').value.trim();
-
-            console.log('nome:', nome);
-            console.log('email:', email);
-            console.log('telefone:', telefone);
-            console.log('paroquia:', paroquia);
-
-            // 4. Monta o corpo do e-mail
-            const bodyLines = [
-                `Nome: ${nome}`,
-                `E-mail: ${email}`,
-                `Telefone: ${telefone}`,
-                `Paróquia: ${paroquia}`
-            ];
-            const body = encodeURIComponent(bodyLines.join('\n'));
-
-            // 5. Define destinatário e assunto
-            const to      = 'clubelivrosantoagostinho@gmail.com';
-            const subject = encodeURIComponent('Novo Cadastro Clube Santo Agostinho');
-
-            // 6. Dispara o mailto usando window.open em vez de window.location.href
-            // Isso mantém a página atual aberta e preserva os valores do formulário
-            window.open(`mailto:${to}?subject=${subject}&body=${body}`);
-            
-            // Opcionalmente, você pode mostrar uma mensagem de confirmação:
-            // alert('Seu cliente de e-mail foi aberto. Por favor, envie o e-mail para completar seu cadastro.');
-        });
-    } else {
-        console.error('Formulário #registration-form não encontrado.');
-    }
-    
-    // Validação do formulário e exibição do modal
+    // ===== FORMULÁRIO DE CADASTRO =====
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validação
             if (validateForm()) {
+                // Captura valores
+                const nome = document.getElementById('nome').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const telefone = document.getElementById('telefone').value.trim();
+                const paroquia = document.getElementById('paroquia').value.trim();
+
+                // Envio do email
+                sendEmailData(nome, email, telefone, paroquia);
+                
+                // Exibe modal de confirmação
                 showConfirmationModal();
+                
+                // Limpa formulário
                 registrationForm.reset();
             }
         });
     }
     
-    // Validação do formulário
+    // ===== FUNÇÕES DE VALIDAÇÃO =====
     function validateForm() {
         const nome = document.getElementById('nome');
         const email = document.getElementById('email');
@@ -110,19 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
     
-    // Exibe mensagem de erro
     function showError(input, message) {
         const formGroup = input.parentElement;
         let errorElement = formGroup.querySelector('.error-message');
         
-        // Se já existir uma mensagem de erro, atualiza o texto
         if (!errorElement) {
             errorElement = document.createElement('span');
             errorElement.className = 'error-message';
-            errorElement.style.color = '#e74c3c';
-            errorElement.style.fontSize = '0.85rem';
-            errorElement.style.marginTop = '5px';
-            errorElement.style.display = 'block';
+            errorElement.style.cssText = `
+                color: #e74c3c;
+                font-size: 0.85rem;
+                margin-top: 5px;
+                display: block;
+            `;
             formGroup.appendChild(errorElement);
         }
         
@@ -130,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         input.style.borderColor = '#e74c3c';
     }
     
-    // Remove mensagem de erro
     function removeError(input) {
         const formGroup = input.parentElement;
         const errorElement = formGroup.querySelector('.error-message');
@@ -142,24 +116,38 @@ document.addEventListener('DOMContentLoaded', function() {
         input.style.borderColor = '#ddd';
     }
     
-    // Valida formato de email
     function isValidEmail(email) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
     
-    // Exibe modal de confirmação
+    // ===== ENVIO DE EMAIL =====
+    function sendEmailData(nome, email, telefone, paroquia) {
+        const bodyLines = [
+            `Nome: ${nome}`,
+            `E-mail: ${email}`,
+            `Telefone: ${telefone || 'Não informado'}`,
+            `Paróquia: ${paroquia || 'Não informado'}`
+        ];
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        const to = 'clubelivrosantoagostinho@gmail.com';
+        const subject = encodeURIComponent('Novo Cadastro Clube Santo Agostinho');
+
+        // Abre cliente de email
+        window.open(`mailto:${to}?subject=${subject}&body=${body}`);
+    }
+    
+    // ===== MODAL DE CONFIRMAÇÃO =====
     function showConfirmationModal() {
         confirmationModal.classList.add('active');
         confirmationModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // Impede rolagem
+        document.body.style.overflow = 'hidden';
     }
     
-    // Fecha modal de confirmação
     function closeConfirmationModal() {
         confirmationModal.classList.remove('active');
         confirmationModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = ''; // Permite rolagem novamente
+        document.body.style.overflow = '';
     }
     
     // Eventos para fechar o modal
@@ -178,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Adiciona classe active no menu baseado na seção visível
+    // ===== NAVEGAÇÃO ATIVA BASEADA NO SCROLL =====
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('section');
         const scrollPosition = window.scrollY + 200;
@@ -199,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Animações ao rolar a página
+    // ===== ANIMAÇÕES AO ROLAR =====
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.about-content, .form-container, .contact-content');
         
@@ -216,16 +204,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializa animações
     document.querySelectorAll('.about-content, .form-container, .contact-content').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        element.style.cssText += `
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        `;
     });
     
-    // Executa animações ao carregar e ao rolar
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Adiciona efeito de hover no botão de enviar
+    // ===== EFEITOS INTERATIVOS =====
     const submitButton = document.querySelector('.btn-submit');
     if (submitButton) {
         submitButton.addEventListener('mouseover', function() {
@@ -237,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Detecta quando é clicado em links internos para rolagem suave
+    // ===== ROLAGEM SUAVE =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -256,43 +242,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // evita recarregar a página
-            
-            // 3. Captura valores
-            const nome     = document.getElementById('nome').value.trim();
-            const email    = document.getElementById('email').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-            const paroquia = document.getElementById('paroquia').value.trim();
-
-            console.log('nome:', nome);
-            console.log('email:', email);
-            console.log('telefone:', telefone);
-            console.log('paroquia:', paroquia);
-
-            // 4. Monta o corpo do e-mail
-            const bodyLines = [
-                `Nome: ${nome}`,
-                `E-mail: ${email}`,
-                `Telefone: ${telefone}`,
-                `Paróquia: ${paroquia}`
-            ];
-            const body = encodeURIComponent(bodyLines.join('\n'));
-
-            // 5. Define destinatário e assunto
-            const to      = 'clubelivrosantoagostinho@gmail.com';
-            const subject = encodeURIComponent('Novo Cadastro Clube Santo Agostinho');
-
-            // 6. Dispara o mailto usando window.open em vez de window.location.href
-            // Isso mantém a página atual aberta e preserva os valores do formulário
-            window.open(`mailto:${to}?subject=${subject}&body=${body}`);
-            
-            // Opcionalmente, você pode mostrar uma mensagem de confirmação:
-            // alert('Seu cliente de e-mail foi aberto. Por favor, envie o e-mail para completar seu cadastro.');
-        });
-    } else {
-        console.error('Formulário #registration-form não encontrado.');
+    
+    // ===== INICIALIZAÇÃO =====
+    // Executa animações na inicialização
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Melhora performance em dispositivos móveis
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(animateOnScroll);
+            ticking = true;
+            setTimeout(() => { ticking = false; }, 16); // ~60fps
+        }
     }
+    
+    window.addEventListener('scroll', requestTick);
+    
+    // ===== TRATAMENTO DE ERROS =====
+    window.addEventListener('error', function(e) {
+        console.error('Erro na aplicação:', e.error);
+    });
+    
+    // ===== LOG DE INICIALIZAÇÃO =====
+    console.log('Clube Santo Agostinho - Site carregado com sucesso!');
 });
