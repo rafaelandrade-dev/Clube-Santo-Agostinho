@@ -1,0 +1,105 @@
+/* ================================================
+   VARIÁVEIS CSS - CLUBE SANTO AGOSTINHO
+   Sistema de Design Católico Moderno
+================================================ */
+
+:root {
+  /* Paleta de Cores Principais */
+  --primary-dark: #5C3317;        /* Marrom escuro (livros antigos) */
+  --primary: #8B6F47;             /* Marrom médio */
+  --primary-light: #C9A55F;       /* Dourado */
+  
+  --secondary: #7A5C4D;           /* Terracota suave */
+  --accent-gold: #D4AF37;         /* Ouro litúrgico */
+  --accent-light: #E8D7B0;        /* Creme dourado */
+  
+  /* Cores Neutras */
+  --bg-cream: #FAF8F3;            /* Creme papel */
+  --bg-white: #FFFFFF;
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+  
+  --text-dark: #2C2416;           /* Texto principal */
+  --text-medium: #5A4A3A;         /* Texto secundário */
+  --text-light: #8B7D6B;          /* Texto terciário */
+  --text-white: #FFFFFF;
+  
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-light) 100%);
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+  
+  /* Tipografia */
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-body: 'Open Sans', 'Lato', sans-serif;
+  --font-accent: 'Cinzel', serif;
+  
+  /* Tamanhos de Fonte */
+  --fs-xs: 0.75rem;      /* 12px */
+  --fs-sm: 0.875rem;     /* 14px */
+  --fs-base: 1rem;       /* 16px */
+  --fs-lg: 1.125rem;     /* 18px */
+  --fs-xl: 1.25rem;      /* 20px */
+  --fs-2xl: 1.5rem;      /* 24px */
+  --fs-3xl: 1.875rem;    /* 30px */
+  --fs-4xl: 2.25rem;     /* 36px */
+  --fs-5xl: 3rem;        /* 48px */
+  --fs-6xl: 3.75rem;     /* 60px */
+  
+  /* Espaçamento */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+  
+  /* Transições */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 500ms cubic-bezier(0.4, 0, 0.1, 1);
+  
+  /* Z-Index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* Container */
+  --container-xs: 640px;
+  --container-sm: 768px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
+  --container-xl: 1536px;
+}
+
+/* Dark Mode Support (futuro) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-cream: #1A1510;
+    --bg-white: #2C2416;
+    --text-dark: #F5F0E6;
+    --text-medium: #D4C4B0;
+  }
+}
+

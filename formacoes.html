@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore nossa biblioteca de formações católicas em vídeo">
+    <title>Formações - Clube Santo Agostinho</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNN3r2gGhN90LPBFmiaF_SSpb2-fQwmZUSnQ&s">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNN3r2gGhN90LPBFmiaF_SSpb2-fQwmZUSnQ&s" alt="Logo Clube Santo Agostinho" class="header-logo-image">
+                <div class="header-logo-text">
+                    <h1 class="header-logo-title">Santo Agostinho</h1>
+                    <span class="header-logo-subtitle">Clube de Formação</span>
+                </div>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="formacoes.html" class="nav-link active">Formações</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="index.html#cadastro" class="btn btn-gold">Participar</a>
+                </div>
+            </nav>
+            
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO FORMAÇÕES -->
+        <section class="formations-hero">
+            <div class="formations-hero-content animate-fade-in-up">
+                <h1 class="formations-hero-title">Biblioteca de Formações</h1>
+                <p class="formations-hero-subtitle">
+                    Explore nossa coleção de vídeos sobre os grandes clássicos da espiritualidade católica
+                </p>
+                <div style="margin-top: 2rem;">
+                    <form class="d-flex justify-center gap-md" style="max-width: 600px; margin: 0 auto;">
+                        <input type="search" 
+                               id="search-formations" 
+                               placeholder="Buscar formações..." 
+                               class="form-input" 
+                               style="flex: 1;">
+                        <button type="button" class="btn btn-gold">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMAÇÃO DESTAQUE -->
+        <section class="section">
+            <div class="container">
+                <div class="featured-formation animate-fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1200" 
+                         alt="Formação em Destaque" 
+                         class="featured-formation-bg">
+                    <div class="featured-formation-content">
+                        <div class="featured-badge">
+                            <i class="fas fa-star"></i>
+                            Nossa Primeira Formação
+                        </div>
+                        <h2 class="featured-formation-title">O Querigma nas Cartas de Paulo</h2>
+                        <p class="featured-formation-description">
+                            Uma jornada pela formação, conversão e mensagem de São Paulo. Da perseguição ao apostolado, 
+                            descobrindo o amor ágape de Deus que transforma vidas e incendeia corações.
+                        </p>
+                        <div class="featured-formation-actions">
+                            <a href="formacao.html?id=1" class="btn btn-gold btn-lg">
+                                <i class="fas fa-book-open"></i>
+                                Acessar Formação
+                            </a>
+                            <a href="index.html#cadastro" class="btn btn-ghost btn-lg">
+                                <i class="fas fa-user-plus"></i>
+                                Participar do Clube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- AVISO SOBRE NOVOS CONTEÚDOS -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container container-narrow">
+                <div class="card" style="background: linear-gradient(135deg, #FFF8DC 0%, #FFE4B5 100%); border-left: 4px solid #D2691E; padding: 2rem; text-align: center;">
+                    <i class="fas fa-book-reader" style="font-size: 3rem; color: #8B4513; margin-bottom: 1rem;"></i>
+                    <h3 style="color: #8B4513; margin-bottom: 1rem;">Série: O Querigma nas Cartas de Paulo</h3>
+                    <p style="color: #5A4A3A; font-size: 1.125rem; margin-bottom: 1.5rem; line-height: 1.7;">
+                        Estamos iniciando nossa jornada de formações baseadas nos grandes clássicos da literatura católica. 
+                        Esta série será composta por 3 formações profundas sobre a vida e mensagem de São Paulo.
+                    </p>
+                    <p style="color: #8B4513; font-weight: 600; font-size: 1rem;">
+                        <i class="fas fa-play-circle"></i> Formação 01 disponível agora | <i class="fas fa-clock"></i> Formações 02 e 03 em breve
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SÉRIE DE FORMAÇÕES -->
+        <section class="category-section">
+            <div class="container">
+                <div class="formations-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                    
+                    <!-- FORMAÇÃO 01 - DISPONÍVEL -->
+                    <div class="formation-card hover-lift" onclick="window.location.href='formacao.html?id=1'" style="cursor: pointer;">
+                        <div class="formation-card-image-container">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=600" 
+                                 alt="Formação 01" 
+                                 class="formation-card-image">
+                            <div class="formation-card-overlay">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formation-card-content">
+                            <div class="formation-card-header">
+                                <h3 class="formation-card-title">Formação 01 - O Querigma nas Cartas de Paulo</h3>
+                                <span class="formation-card-duration" style="background: #28a745; color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">
+                                    <i class="fas fa-check-circle"></i>
+                                    Disponível
+                                </span>
+                            </div>
+                            <p class="formation-card-description">
+                                Primeira parte da série sobre o querigma paulino. Esta formação aborda os Capítulos 1, 2 e 3 do livro.
+                            </p>
+                            <div class="formation-card-footer">
+                                <span class="formation-card-category">
+                                    <i class="fas fa-book-open"></i>
+                                    Teologia Paulina
+                                </span>
+                                <span class="formation-card-cta">
+                                    Acessar
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMAÇÃO 02 - BLOQUEADA -->
+                    <div class="formation-card" style="cursor: not-allowed; opacity: 0.85;">
+                        <div class="formation-card-image-container">
+                            <img src="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?q=80&w=600" 
+                                 alt="Formação 02" 
+                                 class="formation-card-image"
+                                 style="filter: grayscale(60%) brightness(0.7);">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 3;">
+                                <div style="text-align: center; color: white;">
+                                    <i class="fas fa-lock" style="font-size: 3rem; margin-bottom: 1rem; color: #C9A55F;"></i>
+                                    <p style="font-weight: 600; font-size: 1.125rem;">Em Breve</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formation-card-content">
+                            <div class="formation-card-header">
+                                <h3 class="formation-card-title">Formação 02 - O Querigma nas Cartas de Paulo</h3>
+                                <span class="formation-card-duration" style="background: #6c757d; color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">
+                                    <i class="fas fa-lock"></i>
+                                    Bloqueada
+                                </span>
+                            </div>
+                            <p class="formation-card-description">
+                                Continuação da série sobre o querigma paulino. Esta formação aborda os Capítulos 4, 5 e 6 do livro.
+                            </p>
+                            <div class="formation-card-footer">
+                                <span class="formation-card-category">
+                                    <i class="fas fa-book-open"></i>
+                                    Em Preparação
+                                </span>
+                                <span class="formation-card-cta" style="opacity: 0.5;">
+                                    Em breve
+                                    <i class="fas fa-clock"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMAÇÃO 03 - BLOQUEADA -->
+                    <div class="formation-card" style="cursor: not-allowed; opacity: 0.85;">
+                        <div class="formation-card-image-container">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600" 
+                                 alt="Formação 03" 
+                                 class="formation-card-image"
+                                 style="filter: grayscale(60%) brightness(0.7);">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 3;">
+                                <div style="text-align: center; color: white;">
+                                    <i class="fas fa-lock" style="font-size: 3rem; margin-bottom: 1rem; color: #C9A55F;"></i>
+                                    <p style="font-weight: 600; font-size: 1.125rem;">Em Breve</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formation-card-content">
+                            <div class="formation-card-header">
+                                <h3 class="formation-card-title">Formação 03 - O Querigma nas Cartas de Paulo</h3>
+                                <span class="formation-card-duration" style="background: #6c757d; color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">
+                                    <i class="fas fa-lock"></i>
+                                    Bloqueada
+                                </span>
+                            </div>
+                            <p class="formation-card-description">
+                                Conclusão da série sobre o querigma paulino. Esta formação aborda os Capítulos 7, 8 e 9 do livro.
+                            </p>
+                            <div class="formation-card-footer">
+                                <span class="formation-card-category">
+                                    <i class="fas fa-book-open"></i>
+                                    Em Preparação
+                                </span>
+                                <span class="formation-card-cta" style="opacity: 0.5;">
+                                    Em breve
+                                    <i class="fas fa-clock"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA SECTION -->
+        <section class="section bg-white text-center">
+            <div class="container container-narrow">
+                <div style="padding: 4rem 2rem; background: var(--gradient-primary); border-radius: 1.5rem; color: white;">
+                    <i class="fas fa-heart" style="font-size: 4rem; margin-bottom: 1.5rem; color: var(--accent-gold);"></i>
+                    <h2 style="font-size: 2.5rem; color: white; margin-bottom: 1rem;">
+                        Quer receber novidades?
+                    </h2>
+                    <p style="font-size: 1.25rem; color: var(--accent-light); margin-bottom: 2rem;">
+                        Cadastre-se para ser notificado sobre novas formações e conteúdos exclusivos
+                    </p>
+                    <a href="index.html#cadastro" class="btn btn-gold btn-lg">
+                        <i class="fas fa-paper-plane"></i>
+                        Cadastrar Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-section-title">Clube Santo Agostinho</h3>
+                    <p class="footer-text">
+                        Plataforma de formação católica moderna, unindo fé, conhecimento e comunidade 
+                        através dos grandes clássicos da espiritualidade.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://chat.whatsapp.com/DGD0r15PvuU8iRNGk5zGpI?mode=ems_copy_t" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-section-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Início</a></li>
+                        <li><a href="formacoes.html" class="footer-link">Formações</a></li>
+                        <li><a href="index.html#sobre" class="footer-link">Sobre</a></li>
+                        <li><a href="index.html#cadastro" class="footer-link">Participar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-section-title">Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Catecismo Online</a></li>
+                        <li><a href="#" class="footer-link">Bíblia Católica</a></li>
+                        <li><a href="#" class="footer-link">Livrarias Parceiras</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2025 Clube Santo Agostinho. Todos os direitos reservados. 
+                    <br><em>"A fé é fortalecida quando é compartilhada"</em>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/formations.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
